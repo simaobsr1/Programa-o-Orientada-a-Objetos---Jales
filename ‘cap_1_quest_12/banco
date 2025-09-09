@@ -1,0 +1,29 @@
+class ContaBancaria:
+    def __init__(self, titular, saldo_inicial=0):
+        self.titular = titular
+        self.saldo = saldo_inicial
+
+    def depositar(self, valor):
+        self.saldo += valor
+
+    def sacar(self, valor):
+        if valor <= self.saldo:
+            self.saldo -= valor
+            return True
+        else:
+            return False
+
+conta = ContaBancaria("Simão", 1000)
+
+print("Saldo inicial:", conta.saldo)
+
+conta.depositar(500)
+print("Após depósito:", conta.saldo)
+
+sucesso = conta.sacar(1600)
+print("Saque de 1200 bem-sucedido?", sucesso)
+print("Saldo atual:", conta.saldo)
+
+sucesso = conta.sacar(200)
+print("Saque de 200 bem-sucedido?", sucesso)
+print("Saldo atual:", conta.saldo)
